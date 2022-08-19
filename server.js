@@ -12,8 +12,8 @@ const client = new Client(
 );
 await client.connect();
 const app = new Application();
-// const PORT = parseInt(Deno.env.get("PORT")) || 80;
-const PORT = 8080;
+const PORT = parseInt(Deno.env.get("PORT")) || 8080;
+// const PORT = 8080;
 const corsConfig = abcCors({
   origin: true,
   allowedHeaders: [
