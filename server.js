@@ -2,7 +2,7 @@ import { Application } from "https://deno.land/x/abc/mod.ts";
 import { DB } from "https://deno.land/x/sqlite@v2.5.0/mod.ts";
 import { abcCors } from "https://deno.land/x/cors/mod.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
-import { v4 } from "https://deno.land/std/uuid/mod.ts";
+import { v1 } from "https://deno.land/std/uuid/mod.ts";
 import { Client } from "https://deno.land/x/postgres@v0.11.3/mod.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 
@@ -53,7 +53,7 @@ async function postLogIn(server) {
   console.log(userScore);
   if (authenticated.result) {
     // generate unique sessionId
-    const sessionId = v4.generate();
+    const sessionId = v1.generate();
     const query = `INSERT INTO sessions (uuid, user_id, created_at)
                    VALUES ($1, $2, CURRENT_DATE)`;
 
